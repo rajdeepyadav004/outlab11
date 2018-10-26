@@ -12,11 +12,9 @@ for i in range(len(labels)):
     count = 0
     images = map(lambda x: labels[i]+x+'.png', [''] if samples[i] == 1 else map(str, range(1, 1+samples[i])))
     for image in images:
-        print("Adding "+image+"...")
         data = misc.imread(image)
         sumation += numpy.sum(data, axis=(0, 1))
         count += data.shape[0]*data.shape[1]
-    print("Mean calculation done.")
     means[i] = sumation/count
 means = numpy.array(means)
 
